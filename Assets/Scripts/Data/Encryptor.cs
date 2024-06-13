@@ -5,7 +5,7 @@ using UnityEngine;
 
 public static class Encryptor
 {
-     private static byte[] key;
+    private static byte[] key;
     private static byte[] iv;
 
     public static string Encrypt(this string text)
