@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CategoryFilter : MonoBehaviour
+public class MainCategoryFilter : MonoBehaviour
 {
     [SerializeField] 
     private Button soccerButton;
@@ -55,6 +55,11 @@ public class CategoryFilter : MonoBehaviour
     [SerializeField] 
     private Sprite cricketInactiveSprite;
 
+    [Space(13)]
+    
+    [SerializeField] 
+    private MainCategoryScrollView matchScrollView;
+
     private GameData.TypeOfSport selectedCategory;
 
     private Vector2 selectedSize = new Vector2(350, 150);
@@ -63,9 +68,17 @@ public class CategoryFilter : MonoBehaviour
     private void OnEnable()
     {
         selectedCategory = GameData.TypeOfSport.Null;
+        matchScrollView.ResetAllMatches();
         SetButtonSize();
         SetButtonSize();
         ButtonClickAction();
+    }
+
+    public void ResetCategory()
+    {
+        selectedCategory = GameData.TypeOfSport.Null;
+        SetButtonSize();
+        SetButtonSprite();
     }
 
     private void ButtonClickAction()
@@ -78,6 +91,8 @@ public class CategoryFilter : MonoBehaviour
                 selectedCategory = GameData.TypeOfSport.Soccer;
                 SetButtonSprite();
                 SetButtonSize();
+                matchScrollView.ResetAllMatches();
+                matchScrollView.SetScrollViewCategory(selectedCategory);
             });
         }
 
@@ -89,6 +104,8 @@ public class CategoryFilter : MonoBehaviour
                 selectedCategory = GameData.TypeOfSport.Basketball;
                 SetButtonSprite();
                 SetButtonSize();
+                matchScrollView.ResetAllMatches();
+                matchScrollView.SetScrollViewCategory(selectedCategory);
             });
         }
 
@@ -100,6 +117,8 @@ public class CategoryFilter : MonoBehaviour
                 selectedCategory = GameData.TypeOfSport.Volleyball;
                 SetButtonSprite();
                 SetButtonSize();
+                matchScrollView.ResetAllMatches();
+                matchScrollView.SetScrollViewCategory(selectedCategory);
             });
         }
 
@@ -111,6 +130,8 @@ public class CategoryFilter : MonoBehaviour
                 selectedCategory = GameData.TypeOfSport.Baseball;
                 SetButtonSprite();
                 SetButtonSize();
+                matchScrollView.ResetAllMatches();
+                matchScrollView.SetScrollViewCategory(selectedCategory);
             });
         }
 
@@ -122,6 +143,8 @@ public class CategoryFilter : MonoBehaviour
                 selectedCategory = GameData.TypeOfSport.Football;
                 SetButtonSprite();
                 SetButtonSize();
+                matchScrollView.ResetAllMatches();
+                matchScrollView.SetScrollViewCategory(selectedCategory);
             });
         }
 
@@ -133,6 +156,8 @@ public class CategoryFilter : MonoBehaviour
                 selectedCategory = GameData.TypeOfSport.Cricket;
                 SetButtonSprite();
                 SetButtonSize();
+                matchScrollView.ResetAllMatches();
+                matchScrollView.SetScrollViewCategory(selectedCategory);
             });
         }
     }

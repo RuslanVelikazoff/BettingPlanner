@@ -15,15 +15,24 @@ public class GameData
         Null
     }
 
+    public enum Result
+    {
+        Win,
+        Lose,
+        Draw,
+        Null
+    }
+
     public List<string> matchName;
     public List<TypeOfSport> matchType;
     public List<DateTime> matchDate;
     public List<string> matchDateString;
     public List<string> teamName1;
-    public List<int> teamGoals1;
+    public List<int> teamScore1;
+    public List<Result> teamResult1;
     public List<string> teamName2;
-    public List<int> teamGoals2;
-    public List<int> teamWinIndex;
+    public List<int> teamScore2;
+    public List<Result> teamResult2;
 
     public GameData()
     {
@@ -32,9 +41,10 @@ public class GameData
         matchDate = new List<DateTime>();
         matchDateString = new List<string>();
         teamName1 = new List<string>();
-        teamGoals1 = new List<int>();
+        teamScore1 = new List<int>();
+        teamResult1 = new List<Result>();
         teamName2 = new List<string>();
-        teamGoals2 = new List<int>();
-        teamWinIndex = new List<int>();
+        teamScore2 = new List<int>();
+        teamResult2 = new List<Result>();
     }
 }
