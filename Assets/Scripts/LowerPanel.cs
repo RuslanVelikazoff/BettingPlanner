@@ -31,6 +31,13 @@ public class LowerPanel : MonoBehaviour
         ButtonClickAction();
     }
 
+    private void OnEnable()
+    {
+        menuButton.GetComponent<Image>().sprite = menuActiveSprite;
+        matchButton.GetComponent<Image>().sprite = matchInactiveSprite;
+        betButton.GetComponent<Image>().sprite = betInactiveSprite;
+    }
+
     private void SetStartConfiguration()
     {
         menuButton.GetComponent<Image>().sprite = menuActiveSprite;
@@ -40,6 +47,30 @@ public class LowerPanel : MonoBehaviour
         menuPanel.SetActive(true);
         matchPanel.SetActive(false);
         betPanel.SetActive(false);
+    }
+
+    private void SetOnEnableConfiguration()
+    {
+        if (menuPanel.activeInHierarchy)
+        {
+            menuButton.GetComponent<Image>().sprite = menuActiveSprite;
+            matchButton.GetComponent<Image>().sprite = matchInactiveSprite;
+            betButton.GetComponent<Image>().sprite = betInactiveSprite;
+        }
+
+        if (matchPanel.activeInHierarchy)
+        {
+            menuButton.GetComponent<Image>().sprite = menuInactiveSprite;
+            matchButton.GetComponent<Image>().sprite = matchActiveSprite;
+            betButton.GetComponent<Image>().sprite = betInactiveSprite;
+        }
+
+        if (betPanel.activeInHierarchy)
+        {
+            menuButton.GetComponent<Image>().sprite = menuInactiveSprite;
+            matchButton.GetComponent<Image>().sprite = matchInactiveSprite;
+            betButton.GetComponent<Image>().sprite = betActiveSprite;
+        }
     }
 
     private void ButtonClickAction()

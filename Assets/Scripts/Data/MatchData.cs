@@ -177,4 +177,32 @@ public class MatchData : MonoBehaviour
     }
 
     #endregion
+
+    #region SetMethods
+
+    public void SetTeamScore1(int index, int score)
+    {
+        _teamScore1[index] = score;
+        Save();
+    }
+
+    public void SetTeamScore2(int index, int score)
+    {
+        _teamScore2[index] = score;
+        Save();
+    }
+
+    public void SetTeamResult1(int index, GameData.Result result)
+    {
+        _teamResult1[index] = result;
+        Save();
+    }
+
+    public void SetTeamResult2(int index, GameData.Result result)
+    {
+        _teamResult2[index] = result;
+        Save();
+    }
+
+    #endregion
 }

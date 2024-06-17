@@ -4,6 +4,11 @@ using UnityEngine.UI;
 
 public class MainMatchPrefab : MonoBehaviour
 {
+    [SerializeField]
+    private Button mainMatchButton;
+    
+    [Space(13)]
+    
     [SerializeField] 
     private TextMeshProUGUI matchNameText;
     [SerializeField]
@@ -49,6 +54,7 @@ public class MainMatchPrefab : MonoBehaviour
         teamScoreText2.text = MatchData.Instance.GetTeamScore2(index).ToString();
         
         SetTeamWinIndicator(index);
+        ButtonClickAction(index);
     }
 
     private void SetTeamWinIndicator(int index)
@@ -73,6 +79,18 @@ public class MainMatchPrefab : MonoBehaviour
         {
             teamWinIndicator1.color = defaultColor;
             teamWinIndicator2.color = winColor;
+        }
+    }
+
+    private void ButtonClickAction(int index)
+    {
+        if (mainMatchButton != null)
+        {
+            mainMatchButton.onClick.RemoveAllListeners();
+            mainMatchButton.onClick.AddListener(() =>
+            {
+                ViewMatchPanel.Instance.OpenViewPanel(index);
+            });
         }
     }
 }
