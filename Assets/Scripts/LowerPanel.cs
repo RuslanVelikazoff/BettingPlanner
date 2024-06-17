@@ -33,9 +33,7 @@ public class LowerPanel : MonoBehaviour
 
     private void OnEnable()
     {
-        menuButton.GetComponent<Image>().sprite = menuActiveSprite;
-        matchButton.GetComponent<Image>().sprite = matchInactiveSprite;
-        betButton.GetComponent<Image>().sprite = betInactiveSprite;
+        SetOnEnableConfiguration();
     }
 
     private void SetStartConfiguration()

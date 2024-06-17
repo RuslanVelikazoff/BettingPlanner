@@ -104,6 +104,32 @@ public class MatchData : MonoBehaviour
         }
     }
 
+    public bool DataEmpty()
+    {
+        if (_matchName.Count <= 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void DeleteMatch(int index)
+    {
+        _matchName.RemoveAt(index);
+        _matchType.RemoveAt(index);
+        _matchDate.RemoveAt(index);
+        _matchDateString.RemoveAt(index);
+        _teamName1.RemoveAt(index);
+        _teamName2.RemoveAt(index);
+        _teamScore1.RemoveAt(index);
+        _teamScore2.RemoveAt(index);
+        _teamResult1.RemoveAt(index);
+        _teamResult2.RemoveAt(index);
+    }
+
     #region GetMethods
 
     public string GetMatchName(int index)
@@ -180,6 +206,31 @@ public class MatchData : MonoBehaviour
 
     #region SetMethods
 
+    public void SetMatchName(int index, string matchName)
+    {
+        _matchName[index] = matchName;
+        Save();
+    }
+
+    public void SetMatchDate(int index, DateTime date)
+    {
+        _matchDate[index] = date;
+        _matchDateString[index] = date.ToString();
+        Save();
+    }
+
+    public void SetTeamName1(int index, string teamName)
+    {
+        _teamName1[index] = teamName;
+        Save();
+    }
+
+    public void SetTeamName2(int index, string teamName)
+    {
+        _teamName2[index] = teamName;
+        Save();
+    }
+
     public void SetTeamScore1(int index, int score)
     {
         _teamScore1[index] = score;
@@ -201,6 +252,57 @@ public class MatchData : MonoBehaviour
     public void SetTeamResult2(int index, GameData.Result result)
     {
         _teamResult2[index] = result;
+        Save();
+    }
+
+    #endregion
+
+    #region CreateMethods
+
+    public void CreateMatchName(string matchName)
+    {
+        _matchName.Add(matchName);
+    }
+
+    public void CreateMatchType(GameData.TypeOfSport category)
+    {
+        _matchType.Add(category);
+    }
+
+    public void CreateMatchDate(DateTime date)
+    {
+        _matchDate.Add(date);
+        _matchDateString.Add(date.ToString());
+    }
+
+    public void CreateTeamName1(string teamName)
+    {
+        _teamName1.Add(teamName);
+    }
+
+    public void CreateTeamName2(string teamName)
+    {
+        _teamName2.Add(teamName);
+    }
+
+    public void CreateTeamScore1(int score)
+    {
+        _teamScore1.Add(score);
+    }
+
+    public void CreateTeamScore2(int score)
+    {
+        _teamScore2.Add(score);
+    }
+
+    public void CreateTeamResult1(GameData.Result result)
+    {
+        _teamResult1.Add(result);
+    }
+
+    public void CreateTeamResult2(GameData.Result result)
+    {
+        _teamResult2.Add(result);
         Save();
     }
 
