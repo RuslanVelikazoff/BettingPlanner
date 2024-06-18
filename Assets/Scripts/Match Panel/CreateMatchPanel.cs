@@ -131,6 +131,8 @@ public class CreateMatchPanel : MonoBehaviour
                 MatchData.Instance.CreateTeamScore2(0);
                 MatchData.Instance.CreateTeamResult1(GameData.Result.Null);
                 MatchData.Instance.CreateTeamResult2(GameData.Result.Null);
+                MatchData.Instance.CreateMatchBet(GameData.Bet.Null);
+                MatchData.Instance.CreateMatchCoefficient(0f);
                 
                 matchCategoryFilter.ResetCategory();
                 matchScrollView.ResetAllMatches();

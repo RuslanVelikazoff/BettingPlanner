@@ -75,7 +75,7 @@ public class MatchCategoryFilter : MonoBehaviour
         selectedCategory = GameData.TypeOfSport.Null;
         matchScrollView.ResetAllMatches();
         SetButtonSize();
-        SetButtonSize();
+        SetButtonSprite();
         ButtonClickAction();
         CreateButtonAction();
     }

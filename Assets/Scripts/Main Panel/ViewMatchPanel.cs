@@ -40,6 +40,15 @@ public class ViewMatchPanel : MonoBehaviour
     [Space(13)]
     
     [SerializeField]
+    private GameObject betPanel;
+    [SerializeField] 
+    private TextMeshProUGUI betText;
+    [SerializeField]
+    private TextMeshProUGUI coefficientText;
+
+    [Space(13)]
+    
+    [SerializeField]
     private Button closeButton;
     [SerializeField]
     private GameObject lowerPanel;
@@ -75,6 +84,7 @@ public class ViewMatchPanel : MonoBehaviour
 
         SetTeamResultButtonColor(index);
         ButtonClickAction(index);
+        SetBet(index);
     }
 
     private void ButtonClickAction(int index)
@@ -146,6 +156,34 @@ public class ViewMatchPanel : MonoBehaviour
         {
             teamResultButton1.GetComponent<Image>().color = defaultColor;
             teamResultButton2.GetComponent<Image>().color = winColor;
+        }
+    }
+
+    private void SetBet(int index)
+    {
+        switch (MatchData.Instance.GetMatchBet(index))
+        {
+            case GameData.Bet.Null:
+                betPanel.SetActive(false);
+                break;
+            
+            case GameData.Bet.Draw:
+                betPanel.SetActive(true);
+                betText.text = "Draw";
+                coefficientText.text = MatchData.Instance.GetCoefficientBet(index).ToString();
+                break;
+            
+            case GameData.Bet.WinTeam1:
+                betPanel.SetActive(true);
+                betText.text = "Win Team 1";
+                coefficientText.text = MatchData.Instance.GetCoefficientBet(index).ToString();
+                break;
+            
+            case GameData.Bet.WinTeam2:
+                betPanel.SetActive(true);
+                betText.text = "Win Team 2";
+                coefficientText.text = MatchData.Instance.GetCoefficientBet(index).ToString();
+                break;
         }
     }
 }

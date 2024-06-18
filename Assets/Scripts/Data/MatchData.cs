@@ -18,6 +18,8 @@ public class MatchData : MonoBehaviour
     public List<string> _teamName2;
     public List<int> _teamScore2;
     public List<GameData.Result> _teamResult2;
+    public List<GameData.Bet> _matchBet;
+    public List<float> _coefficientBet;
 
     private void Awake()
     {
@@ -62,6 +64,8 @@ public class MatchData : MonoBehaviour
         _teamName2 = data.teamName2;
         _teamScore2 = data.teamScore2;
         _teamResult2 = data.teamResult2;
+        _matchBet = data.matchBet;
+        _coefficientBet = data.coefficientBet;
 
         Debug.Log("Match data loaded");
     }
@@ -87,7 +91,9 @@ public class MatchData : MonoBehaviour
             teamResult1 = _teamResult1,
             teamName2 = _teamName2,
             teamScore2 = _teamScore2,
-            teamResult2 = _teamResult2
+            teamResult2 = _teamResult2,
+            matchBet = _matchBet,
+            coefficientBet = _coefficientBet
         };
 
         return data;
@@ -128,6 +134,8 @@ public class MatchData : MonoBehaviour
         _teamScore2.RemoveAt(index);
         _teamResult1.RemoveAt(index);
         _teamResult2.RemoveAt(index);
+        _matchBet.RemoveAt(index);
+        _coefficientBet.RemoveAt(index);
     }
 
     #region GetMethods
@@ -170,6 +178,16 @@ public class MatchData : MonoBehaviour
     public DateTime GetMatchDate(int index)
     {
         return _matchDate[index];
+    }
+
+    public GameData.Bet GetMatchBet(int index)
+    {
+        return _matchBet[index];
+    }
+
+    public float GetCoefficientBet(int index)
+    {
+        return _coefficientBet[index];
     }
 
     public List<int> GetMatchCategoryIndexList(GameData.TypeOfSport category)
@@ -255,6 +273,18 @@ public class MatchData : MonoBehaviour
         Save();
     }
 
+    public void SetMatchBet(int index, GameData.Bet bet)
+    {
+        _matchBet[index] = bet;
+        Save();
+    }
+
+    public void SetCoefficientBet(int index, float coefficient)
+    {
+        _coefficientBet[index] = coefficient;
+        Save();
+    }
+
     #endregion
 
     #region CreateMethods
@@ -303,6 +333,16 @@ public class MatchData : MonoBehaviour
     public void CreateTeamResult2(GameData.Result result)
     {
         _teamResult2.Add(result);
+    }
+
+    public void CreateMatchBet(GameData.Bet bet)
+    {
+        _matchBet.Add(bet);
+    }
+
+    public void CreateMatchCoefficient(float coefficient)
+    {
+        _coefficientBet.Add(coefficient);
         Save();
     }
 

@@ -23,6 +23,14 @@ public class GameData
         Null
     }
 
+    public enum Bet
+    {
+        WinTeam1,
+        WinTeam2,
+        Draw,
+        Null
+    }
+
     public List<string> matchName;
     public List<TypeOfSport> matchType;
     public List<DateTime> matchDate;
@@ -33,6 +41,8 @@ public class GameData
     public List<string> teamName2;
     public List<int> teamScore2;
     public List<Result> teamResult2;
+    public List<Bet> matchBet;
+    public List<float> coefficientBet;
 
     public GameData()
     {
@@ -46,5 +56,7 @@ public class GameData
         teamName2 = new List<string>();
         teamScore2 = new List<int>();
         teamResult2 = new List<Result>();
+        matchBet = new List<Bet>();
+        coefficientBet = new List<float>();
     }
 }
