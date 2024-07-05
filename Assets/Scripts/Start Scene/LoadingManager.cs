@@ -11,6 +11,11 @@ public class LoadingManager : MonoBehaviour
 
     [SerializeField] private Slider loadingSlider;
 
+    private void Awake()
+    {
+        StartLoading();
+    }
+
     private void Update()
     {
         if (load)
