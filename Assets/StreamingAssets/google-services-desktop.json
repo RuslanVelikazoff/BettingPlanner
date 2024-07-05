@@ -1,0 +1,32 @@
+{
+  "project_info": {
+    "project_number": "786177039095",
+    "firebase_url": "https://bettingplanner-68eee-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "bettingplanner-68eee",
+    "storage_bucket": "bettingplanner-68eee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:786177039095:ios:60bae9eb568bf662add1f2",
+        "android_client_info": {
+          "package_name": "com.gouseit.4rayourmatch"
+        }
+      },
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZaUJzf04HRuRc1-ftLbZTbBWnc_xD6Vw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 0
+        },
+        "appinvite_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
