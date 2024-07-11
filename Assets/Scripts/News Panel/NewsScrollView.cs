@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Firebase.Database;
 using UnityEngine;
@@ -16,7 +17,10 @@ public class NewsScrollView : MonoBehaviour
     private void Awake()
     {
         databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
+    }
 
+    private void OnEnable()
+    {
         for (int i = 0; i < newsAmount; i++)
         {
             StartCoroutine(LoadDataBase(i));
